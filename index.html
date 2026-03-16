@@ -1,0 +1,1174 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0b0f14" />
+  <title>PL Digital | Marketing, Sites e Estratégia Digital</title>
+  <meta name="description" content="PL Digital. Estrutura digital premium para empresas que querem mais autoridade, presença e conversão no WhatsApp." />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+    :root{
+      --bg:#0b0f14;
+      --bg-2:#0f1620;
+      --bg-3:#131d29;
+      --panel:#121b26;
+      --panel-2:#182332;
+      --panel-3:#1d2a3b;
+
+      --text:#f5f7fb;
+      --text-2:#d8e1ec;
+      --muted:#92a3b5;
+      --muted-2:#6f8296;
+
+      --line:rgba(255,255,255,.08);
+      --line-strong:rgba(255,255,255,.14);
+
+      --green:#2bd576;
+      --green-2:#1fb863;
+      --green-soft:rgba(43,213,118,.16);
+      --blue:#3b82f6;
+      --blue-2:#1d4ed8;
+      --blue-soft:rgba(59,130,246,.16);
+
+      --white:#ffffff;
+      --shadow-sm:0 14px 34px rgba(0,0,0,.22);
+      --shadow-md:0 22px 54px rgba(0,0,0,.28);
+      --shadow-lg:0 40px 100px rgba(0,0,0,.40);
+
+      --radius-sm:16px;
+      --radius:24px;
+      --radius-lg:34px;
+      --container:1240px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:'Inter', Arial, sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at 15% 0%, rgba(43,213,118,.10), transparent 26%),
+        radial-gradient(circle at 82% 10%, rgba(59,130,246,.14), transparent 28%),
+        linear-gradient(180deg, #0b0f14 0%, #0d131b 100%);
+      overflow-x:hidden;
+    }
+    a{color:inherit;text-decoration:none}
+    img{display:block;max-width:100%}
+    button,input,textarea{font:inherit}
+
+    .wrap{
+      width:min(var(--container), calc(100% - 40px));
+      margin:0 auto;
+    }
+
+    .topGlow{
+      position:fixed;
+      inset:-15% auto auto -10%;
+      width:520px;
+      height:520px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(43,213,118,.12), transparent 68%);
+      pointer-events:none;
+      filter:blur(18px);
+      z-index:0;
+    }
+
+    .sideGlow{
+      position:fixed;
+      inset:8% -8% auto auto;
+      width:620px;
+      height:620px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(59,130,246,.14), transparent 68%);
+      pointer-events:none;
+      filter:blur(20px);
+      z-index:0;
+    }
+
+    .siteShell{position:relative;z-index:1}
+
+    /* HEADER */
+    .header{
+      position:sticky;
+      top:0;
+      z-index:90;
+      backdrop-filter:blur(14px);
+      background:rgba(10,14,19,.78);
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+
+    .headerInner{
+      min-height:78px;
+      display:grid;
+      grid-template-columns:auto 1fr auto;
+      align-items:center;
+      gap:20px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width:0;
+    }
+
+    .brandBadge{
+      width:44px;
+      height:44px;
+      border-radius:14px;
+      display:grid;
+      place-items:center;
+      background:
+        linear-gradient(135deg, rgba(43,213,118,.22), rgba(59,130,246,.18)),
+        #101924;
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow:0 10px 26px rgba(0,0,0,.24);
+      color:#fff;
+      font-size:16px;
+      font-weight:900;
+      letter-spacing:.04em;
+    }
+
+    .brandText strong{
+      display:block;
+      font-size:18px;
+      line-height:1;
+      font-weight:900;
+      letter-spacing:.02em;
+    }
+
+    .brandText span{
+      display:block;
+      margin-top:4px;
+      font-size:11px;
+      color:var(--muted);
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      font-weight:700;
+    }
+
+    .nav{
+      display:flex;
+      justify-content:center;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+
+    .nav a{
+      font-size:14px;
+      font-weight:700;
+      color:var(--text-2);
+      opacity:.88;
+      transition:.22s ease;
+      position:relative;
+      padding:6px 0;
+    }
+
+    .nav a::after{
+      content:'';
+      position:absolute;
+      left:0;
+      bottom:-6px;
+      width:0;
+      height:2px;
+      border-radius:999px;
+      background:linear-gradient(90deg, var(--green), var(--blue));
+      transition:.22s ease;
+    }
+
+    .nav a:hover{opacity:1;color:#fff}
+    .nav a:hover::after{width:100%}
+
+    .headerActions{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+
+    .btn{
+      min-height:46px;
+      padding:12px 18px;
+      border-radius:999px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      font-size:14px;
+      font-weight:800;
+      line-height:1;
+      border:1px solid transparent;
+      transition:transform .22s ease, box-shadow .22s ease, background .22s ease, border-color .22s ease, color .22s ease;
+      white-space:nowrap;
+    }
+
+    .btn:hover{transform:translateY(-2px)}
+
+    .btnGhost{
+      color:var(--text);
+      background:rgba(255,255,255,.02);
+      border-color:rgba(255,255,255,.10);
+    }
+
+    .btnGhost:hover{
+      background:rgba(255,255,255,.05);
+      border-color:rgba(255,255,255,.16);
+    }
+
+    .btnPrimary{
+      color:#07110b;
+      background:linear-gradient(135deg, var(--green) 0%, #5ff59a 100%);
+      box-shadow:0 16px 34px rgba(43,213,118,.22);
+    }
+
+    .btnPrimary:hover{
+      box-shadow:0 22px 40px rgba(43,213,118,.28);
+    }
+
+    .menuToggle{
+      display:none;
+      width:46px;
+      height:46px;
+      border:none;
+      border-radius:14px;
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.08);
+      color:#fff;
+    }
+
+    /* HERO */
+    .hero{
+      position:relative;
+      padding:56px 0 32px;
+    }
+
+    .heroGrid{
+      display:grid;
+      grid-template-columns:1.02fr .98fr;
+      gap:34px;
+      align-items:center;
+      min-height:calc(100vh - 110px);
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.08);
+      background:rgba(255,255,255,.03);
+      color:var(--text-2);
+      font-size:12px;
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:.14em;
+    }
+
+    .eyebrow::before{
+      content:'';
+      width:8px;
+      height:8px;
+      border-radius:50%;
+      background:var(--green);
+      box-shadow:0 0 20px rgba(43,213,118,.9);
+    }
+
+    .heroCopy h1{
+      margin:22px 0 0;
+      font-size:clamp(42px, 6vw, 78px);
+      line-height:.95;
+      letter-spacing:-.05em;
+      max-width:10ch;
+    }
+
+    .heroCopy p{
+      margin:22px 0 0;
+      max-width:58ch;
+      color:var(--text-2);
+      font-size:17px;
+      line-height:1.8;
+    }
+
+    .heroActions{
+      margin-top:28px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+    }
+
+    .heroMeta{
+      margin-top:28px;
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0,1fr));
+      gap:14px;
+      max-width:760px;
+    }
+
+    .metaCard{
+      padding:18px 18px;
+      border-radius:20px;
+      background:rgba(255,255,255,.03);
+      border:1px solid rgba(255,255,255,.08);
+      box-shadow:var(--shadow-sm);
+    }
+
+    .metaCard strong{
+      display:block;
+      font-size:14px;
+      margin-bottom:7px;
+    }
+
+    .metaCard span{
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.7;
+      display:block;
+    }
+
+    .heroVisualWrap{
+      position:relative;
+      padding-left:22px;
+    }
+
+    .heroVisualBack{
+      position:absolute;
+      inset:4% 0 auto 14%;
+      height:78%;
+      border-radius:36px;
+      background:
+        radial-gradient(circle at 25% 20%, rgba(43,213,118,.16), transparent 30%),
+        radial-gradient(circle at 78% 25%, rgba(59,130,246,.20), transparent 34%),
+        linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.01));
+      border:1px solid rgba(255,255,255,.06);
+      filter:blur(.2px);
+    }
+
+    .heroPanel{
+      position:relative;
+      z-index:2;
+      border-radius:34px;
+      overflow:hidden;
+      background:linear-gradient(180deg, #131c28 0%, #0f1721 100%);
+      border:1px solid rgba(255,255,255,.08);
+      box-shadow:var(--shadow-lg);
+    }
+
+    .panelTop{
+      min-height:58px;
+      padding:0 18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      border-bottom:1px solid rgba(255,255,255,.06);
+      background:rgba(255,255,255,.02);
+    }
+
+    .panelDots{display:flex;gap:8px}
+    .panelDots span{
+      width:10px;height:10px;border-radius:50%;display:block;
+      background:rgba(255,255,255,.18);
+    }
+
+    .panelDots span:nth-child(1){background:#ff5f56}
+    .panelDots span:nth-child(2){background:#ffbd2e}
+    .panelDots span:nth-child(3){background:#27c93f}
+
+    .panelLabel{
+      color:var(--muted);
+      font-size:12px;
+      font-weight:700;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+
+    .panelBody{
+      padding:22px;
+      display:grid;
+      gap:16px;
+    }
+
+    .visualHeroCard{
+      min-height:220px;
+      border-radius:26px;
+      padding:24px;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(43,213,118,.12), transparent 26%),
+        radial-gradient(circle at 84% 12%, rgba(59,130,246,.18), transparent 30%),
+        linear-gradient(180deg, #172231 0%, #131d29 100%);
+      border:1px solid rgba(255,255,255,.06);
+      display:grid;
+      align-content:end;
+      gap:12px;
+    }
+
+    .visualHeroCard small{
+      color:#7ff0ad;
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      font-weight:800;
+    }
+
+    .visualHeroCard strong{
+      display:block;
+      font-size:32px;
+      line-height:1.06;
+      max-width:10ch;
+    }
+
+    .visualHeroCard p{
+      margin:0;
+      color:var(--text-2);
+      line-height:1.8;
+      font-size:14px;
+      max-width:36ch;
+    }
+
+    .miniGrid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:16px;
+    }
+
+    .miniPanel{
+      min-height:150px;
+      padding:18px;
+      border-radius:22px;
+      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      border:1px solid rgba(255,255,255,.06);
+      display:grid;
+      align-content:start;
+      gap:10px;
+    }
+
+    .miniPanel h3{
+      margin:0;
+      font-size:16px;
+    }
+
+    .miniPanel p{
+      margin:0;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.7;
+    }
+
+    .miniBar{
+      height:10px;
+      border-radius:999px;
+      background:rgba(255,255,255,.06);
+      overflow:hidden;
+    }
+
+    .miniBar span{
+      display:block;
+      height:100%;
+      border-radius:999px;
+      background:linear-gradient(90deg, var(--green), var(--blue));
+    }
+
+    .section{
+      padding:42px 0 26px;
+    }
+
+    .sectionHead{
+      display:grid;
+      grid-template-columns:1fr auto;
+      gap:20px;
+      align-items:end;
+      margin-bottom:24px;
+    }
+
+    .sectionHead h2{
+      margin:8px 0 0;
+      font-size:clamp(30px, 4vw, 52px);
+      line-height:1;
+      letter-spacing:-.04em;
+    }
+
+    .sectionHead p{
+      margin:0;
+      max-width:58ch;
+      color:var(--muted);
+      line-height:1.8;
+    }
+
+    .kicker{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      font-size:12px;
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      color:#8feab3;
+    }
+
+    .kicker::before{
+      content:'';
+      width:34px;
+      height:2px;
+      border-radius:999px;
+      background:linear-gradient(90deg, var(--green), var(--blue));
+    }
+
+    .trustGrid,
+    .servicesGrid,
+    .stepsGrid,
+    .pagesGrid{
+      display:grid;
+      gap:18px;
+    }
+
+    .trustGrid{grid-template-columns:repeat(4,1fr)}
+    .servicesGrid{grid-template-columns:repeat(4,1fr)}
+    .stepsGrid{grid-template-columns:repeat(4,1fr)}
+    .pagesGrid{grid-template-columns:repeat(4,1fr)}
+
+    .card{
+      border-radius:28px;
+      background:linear-gradient(180deg, rgba(255,255,255,.035), rgba(255,255,255,.02));
+      border:1px solid rgba(255,255,255,.08);
+      box-shadow:var(--shadow-sm);
+      transition:transform .24s ease, box-shadow .24s ease, border-color .24s ease, background .24s ease;
+    }
+
+    .card:hover{
+      transform:translateY(-6px);
+      box-shadow:var(--shadow-md);
+      border-color:rgba(255,255,255,.14);
+      background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.024));
+    }
+
+    .trustCard{
+      padding:24px;
+    }
+
+    .trustCard strong{
+      display:block;
+      font-size:26px;
+      margin-bottom:8px;
+      letter-spacing:-.04em;
+    }
+
+    .trustCard span{
+      display:block;
+      color:var(--muted);
+      line-height:1.75;
+      font-size:14px;
+    }
+
+    .serviceCard{
+      padding:24px;
+      min-height:240px;
+      display:grid;
+      align-content:start;
+      gap:14px;
+    }
+
+    .serviceIcon{
+      width:54px;
+      height:54px;
+      border-radius:16px;
+      display:grid;
+      place-items:center;
+      background:linear-gradient(135deg, rgba(43,213,118,.14), rgba(59,130,246,.16));
+      border:1px solid rgba(255,255,255,.08);
+      font-size:22px;
+    }
+
+    .serviceCard h3{
+      margin:0;
+      font-size:20px;
+      line-height:1.1;
+    }
+
+    .serviceCard p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.8;
+      font-size:14px;
+    }
+
+    .serviceTag{
+      margin-top:auto;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.08);
+      color:var(--text-2);
+      font-size:12px;
+      font-weight:700;
+      width:max-content;
+    }
+
+    .portfolioWrap{
+      display:grid;
+      gap:18px;
+    }
+
+    .portfolioCard{
+      display:grid;
+      grid-template-columns:.95fr 1.05fr;
+      gap:0;
+      overflow:hidden;
+      min-height:340px;
+    }
+
+    .portfolioMedia{
+      background:
+        radial-gradient(circle at 20% 20%, rgba(43,213,118,.18), transparent 30%),
+        radial-gradient(circle at 80% 80%, rgba(59,130,246,.18), transparent 32%),
+        linear-gradient(135deg, #131d28 0%, #182536 100%);
+      position:relative;
+      min-height:100%;
+      padding:24px;
+      display:grid;
+      align-content:end;
+    }
+
+    .portfolioScreen{
+      position:absolute;
+      inset:24px 24px auto 24px;
+      height:62%;
+      border-radius:24px;
+      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      border:1px solid rgba(255,255,255,.08);
+      box-shadow:var(--shadow-sm);
+    }
+
+    .portfolioScreen::before{
+      content:'';
+      position:absolute;
+      inset:16px;
+      border-radius:18px;
+      background:
+        linear-gradient(180deg, rgba(43,213,118,.16), transparent 40%),
+        linear-gradient(135deg, #0f1721 0%, #162231 100%);
+      border:1px solid rgba(255,255,255,.06);
+    }
+
+    .portfolioMedia span{
+      position:relative;
+      z-index:2;
+      display:inline-flex;
+      width:max-content;
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(255,255,255,.07);
+      border:1px solid rgba(255,255,255,.08);
+      color:#dffbea;
+      font-size:12px;
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+    }
+
+    .portfolioContent{
+      padding:30px;
+      display:grid;
+      align-content:center;
+      gap:16px;
+      background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
+    }
+
+    .portfolioContent h3{
+      margin:0;
+      font-size:34px;
+      line-height:1.02;
+      letter-spacing:-.04em;
+    }
+
+    .portfolioContent p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.85;
+      font-size:15px;
+      max-width:54ch;
+    }
+
+    .portfolioList{
+      margin:0;
+      padding:0;
+      list-style:none;
+      display:grid;
+      gap:10px;
+    }
+
+    .portfolioList li{
+      color:var(--text-2);
+      font-size:14px;
+      line-height:1.7;
+      display:flex;
+      gap:10px;
+    }
+
+    .portfolioList li::before{
+      content:'•';
+      color:var(--green);
+      font-weight:900;
+    }
+
+    .stepsCard,
+    .pageCard{
+      padding:24px;
+      min-height:220px;
+      display:grid;
+      align-content:start;
+      gap:12px;
+    }
+
+    .stepIndex,
+    .pageIndex{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:42px;
+      height:42px;
+      border-radius:14px;
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.08);
+      color:#fff;
+      font-weight:900;
+    }
+
+    .stepsCard h3,
+    .pageCard h3{
+      margin:0;
+      font-size:20px;
+      line-height:1.08;
+    }
+
+    .stepsCard p,
+    .pageCard p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.8;
+      font-size:14px;
+    }
+
+    .ctaSection{
+      padding:56px 0 80px;
+    }
+
+    .ctaPanel{
+      padding:34px;
+      border-radius:34px;
+      background:
+        radial-gradient(circle at 16% 22%, rgba(43,213,118,.16), transparent 26%),
+        radial-gradient(circle at 86% 18%, rgba(59,130,246,.18), transparent 28%),
+        linear-gradient(180deg, #121b26 0%, #0e151e 100%);
+      border:1px solid rgba(255,255,255,.08);
+      box-shadow:var(--shadow-lg);
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:24px;
+      align-items:center;
+    }
+
+    .ctaPanel h2{
+      margin:0;
+      font-size:clamp(30px, 4vw, 50px);
+      line-height:.98;
+      letter-spacing:-.04em;
+      max-width:12ch;
+    }
+
+    .ctaPanel p{
+      margin:14px 0 0;
+      color:var(--text-2);
+      line-height:1.8;
+      max-width:58ch;
+    }
+
+    .ctaRight{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+      gap:14px;
+    }
+
+    .footer{
+      border-top:1px solid rgba(255,255,255,.06);
+      background:rgba(255,255,255,.02);
+    }
+
+    .footerInner{
+      min-height:84px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .footerLinks{
+      display:flex;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+
+    .footerLinks a:hover{color:#fff}
+
+    @media (max-width: 1100px){
+      .heroGrid,
+      .ctaPanel,
+      .portfolioCard{grid-template-columns:1fr}
+      .servicesGrid{grid-template-columns:repeat(2,1fr)}
+      .trustGrid{grid-template-columns:repeat(2,1fr)}
+      .stepsGrid{grid-template-columns:repeat(2,1fr)}
+      .pagesGrid{grid-template-columns:repeat(2,1fr)}
+      .heroVisualWrap{padding-left:0}
+      .ctaRight{justify-content:flex-start}
+    }
+
+    @media (max-width: 860px){
+      .nav,
+      .headerActions{display:none}
+      .menuToggle{display:grid;place-items:center}
+      .headerInner{grid-template-columns:auto auto}
+      .hero{padding-top:26px}
+      .heroGrid{min-height:auto;gap:24px}
+      .heroMeta{grid-template-columns:1fr}
+      .sectionHead{grid-template-columns:1fr}
+    }
+
+    @media (max-width: 640px){
+      .wrap{width:min(var(--container), calc(100% - 20px))}
+      .heroCopy h1{max-width:12ch}
+      .servicesGrid,
+      .trustGrid,
+      .stepsGrid,
+      .pagesGrid,
+      .miniGrid{grid-template-columns:1fr}
+      .portfolioContent{padding:22px}
+      .portfolioContent h3{font-size:28px}
+      .visualHeroCard strong{font-size:28px}
+      .ctaPanel{padding:24px}
+      .footerInner{min-height:auto;padding:18px 0;flex-direction:column;align-items:flex-start}
+      .btn{width:100%}
+      .heroActions,.ctaRight{width:100%}
+    }
+  </style>
+</head>
+<body>
+  <div class="topGlow"></div>
+  <div class="sideGlow"></div>
+
+  <div class="siteShell">
+    <header class="header">
+      <div class="wrap headerInner">
+        <a href="index.html" class="brand" aria-label="PL Digital">
+          <span class="brandBadge">PL</span>
+          <span class="brandText">
+            <strong>PL Digital</strong>
+            <span>Marketing e presença digital</span>
+          </span>
+        </a>
+
+        <nav class="nav" aria-label="principal">
+          <a href="index.html">Início</a>
+          <a href="servicos.html">Serviços</a>
+          <a href="portfolio.html">Portfólio</a>
+          <a href="instagram.html">Instagram</a>
+          <a href="contato.html">Contato</a>
+        </nav>
+
+        <div class="headerActions">
+          <a class="btn btnGhost" href="portfolio.html">Ver projetos</a>
+          <a class="btn btnPrimary" href="contato.html">Solicitar orçamento</a>
+        </div>
+
+        <button class="menuToggle" aria-label="Abrir menu">☰</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="wrap heroGrid">
+          <div class="heroCopy">
+            <span class="eyebrow">Estrutura digital com padrão premium</span>
+            <h1>Presença digital forte, moderna e pronta para vender.</h1>
+            <p>
+              A PL Digital une design, estratégia, tráfego e posicionamento para empresas que querem sair da aparência comum e entrar em um nível mais profissional, tecnológico e confiável.
+            </p>
+
+            <div class="heroActions">
+              <a class="btn btnPrimary" href="contato.html">Começar projeto</a>
+              <a class="btn btnGhost" href="portfolio.html">Explorar portfólio</a>
+            </div>
+
+            <div class="heroMeta">
+              <article class="metaCard">
+                <strong>Design com cara de empresa grande</strong>
+                <span>Sites e páginas com mais impacto visual, hierarquia forte e leitura moderna.</span>
+              </article>
+              <article class="metaCard">
+                <strong>Foco em conversão real</strong>
+                <span>Estrutura pensada para WhatsApp, autoridade e geração de oportunidade.</span>
+              </article>
+              <article class="metaCard">
+                <strong>Visual mais tech e premium</strong>
+                <span>Uma linguagem digital mais forte, limpa e memorável para sua marca.</span>
+              </article>
+            </div>
+          </div>
+
+          <div class="heroVisualWrap">
+            <div class="heroVisualBack"></div>
+            <div class="heroPanel">
+              <div class="panelTop">
+                <div class="panelDots"><span></span><span></span><span></span></div>
+                <div class="panelLabel">PL Digital Interface</div>
+              </div>
+
+              <div class="panelBody">
+                <div class="visualHeroCard">
+                  <small>Estratégia digital</small>
+                  <strong>Sites, tráfego e presença com mais valor percebido.</strong>
+                  <p>Uma apresentação visual mais madura, organizada e compatível com marcas que querem crescer.</p>
+                </div>
+
+                <div class="miniGrid">
+                  <article class="miniPanel">
+                    <h3>Autoridade visual</h3>
+                    <p>Tipografia, contraste, respiro e estrutura para sair do amador.</p>
+                    <div class="miniBar"><span style="width:88%"></span></div>
+                  </article>
+
+                  <article class="miniPanel">
+                    <h3>Conversão no WhatsApp</h3>
+                    <p>Botões, fluxo e blocos com intenção comercial mais clara.</p>
+                    <div class="miniBar"><span style="width:82%"></span></div>
+                  </article>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="wrap">
+          <div class="sectionHead">
+            <div>
+              <span class="kicker">Base forte</span>
+              <h2>Mais clareza visual, mais confiança e mais valor percebido.</h2>
+            </div>
+            <p>
+              O objetivo da nova PL Digital não é parecer uma agência comum. É transmitir organização, tecnologia, profissionalismo e capacidade de entrega.
+            </p>
+          </div>
+
+          <div class="trustGrid">
+            <article class="card trustCard">
+              <strong>Layout premium</strong>
+              <span>Estrutura com mais respiro, contraste e aparência tech.</span>
+            </article>
+            <article class="card trustCard">
+              <strong>Mensagem direta</strong>
+              <span>Hero mais forte, menos poluído e mais convincente.</span>
+            </article>
+            <article class="card trustCard">
+              <strong>Páginas organizadas</strong>
+              <span>Como suas páginas são separadas, cada uma pode ter função clara.</span>
+            </article>
+            <article class="card trustCard">
+              <strong>Mais autoridade</strong>
+              <span>Visual alinhado a negócios digitais mais sérios e vendáveis.</span>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="wrap">
+          <div class="sectionHead">
+            <div>
+              <span class="kicker">O que a PL Digital entrega</span>
+              <h2>Serviços apresentados como sistema, não como lista simples.</h2>
+            </div>
+            <p>
+              A ideia aqui é fazer seu visitante sentir que existe processo, padrão e direção estratégica por trás do trabalho.
+            </p>
+          </div>
+
+          <div class="servicesGrid">
+            <article class="card serviceCard">
+              <div class="serviceIcon">⚡</div>
+              <h3>Tráfego pago</h3>
+              <p>Campanhas com foco em alcance qualificado, atenção e geração de oportunidades comerciais.</p>
+              <span class="serviceTag">Performance digital</span>
+            </article>
+
+            <article class="card serviceCard">
+              <div class="serviceIcon">💻</div>
+              <h3>Sites e landing pages</h3>
+              <p>Estruturas visuais mais modernas, rápidas e pensadas para aumentar valor percebido.</p>
+              <span class="serviceTag">Presença premium</span>
+            </article>
+
+            <article class="card serviceCard">
+              <div class="serviceIcon">📱</div>
+              <h3>Instagram estratégico</h3>
+              <p>Organização visual, identidade e apresentação mais profissional para a marca nas redes.</p>
+              <span class="serviceTag">Marca consistente</span>
+            </article>
+
+            <article class="card serviceCard">
+              <div class="serviceIcon">🎯</div>
+              <h3>Posicionamento digital</h3>
+              <p>Clareza de mensagem, melhor hierarquia visual e comunicação com mais autoridade.</p>
+              <span class="serviceTag">Mais confiança</span>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="wrap">
+          <div class="sectionHead">
+            <div>
+              <span class="kicker">Portfólio em destaque</span>
+              <h2>Cases apresentados com mais valor visual e comercial.</h2>
+            </div>
+            <p>
+              Em vez de mostrar apenas imagens soltas, o ideal é apresentar contexto, objetivo e resultado percebido de cada projeto.
+            </p>
+          </div>
+
+          <div class="portfolioWrap">
+            <article class="card portfolioCard">
+              <div class="portfolioMedia">
+                <div class="portfolioScreen"></div>
+                <span>Case em destaque</span>
+              </div>
+              <div class="portfolioContent">
+                <h3>Site institucional com leitura premium</h3>
+                <p>Apresentação mais forte, visual mais limpo e organização pensada para transmitir confiança logo no primeiro impacto.</p>
+                <ul class="portfolioList">
+                  <li>Hero mais forte e mais estratégico</li>
+                  <li>Blocos organizados por intenção comercial</li>
+                  <li>Mais sensação de autoridade e tecnologia</li>
+                </ul>
+                <div>
+                  <a class="btn btnGhost" href="portfolio.html">Ver portfólio completo</a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="wrap">
+          <div class="sectionHead">
+            <div>
+              <span class="kicker">Como funciona</span>
+              <h2>Uma jornada simples, com mais método e menos improviso.</h2>
+            </div>
+            <p>
+              O site precisa comunicar processo. Isso faz o cliente confiar mais e perceber que existe direção profissional no atendimento.
+            </p>
+          </div>
+
+          <div class="stepsGrid">
+            <article class="card stepsCard">
+              <span class="stepIndex">01</span>
+              <h3>Diagnóstico</h3>
+              <p>Entendimento da marca, da oferta e do que hoje está deixando sua presença com cara de amador.</p>
+            </article>
+            <article class="card stepsCard">
+              <span class="stepIndex">02</span>
+              <h3>Estrutura</h3>
+              <p>Definição de hierarquia, páginas, direção visual, CTAs e narrativa principal.</p>
+            </article>
+            <article class="card stepsCard">
+              <span class="stepIndex">03</span>
+              <h3>Execução</h3>
+              <p>Construção do layout, refino dos blocos e aplicação de identidade mais forte.</p>
+            </article>
+            <article class="card stepsCard">
+              <span class="stepIndex">04</span>
+              <h3>Conversão</h3>
+              <p>Organização do fluxo para facilitar contato, orçamento e leitura rápida do valor da marca.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="wrap">
+          <div class="sectionHead">
+            <div>
+              <span class="kicker">Páginas separadas</span>
+              <h2>Seu site pode continuar dividido por páginas, mas com padrão visual único.</h2>
+            </div>
+            <p>
+              Como você já trabalha com páginas abertas separadamente, o ideal é deixar cada uma com função bem definida dentro do mesmo sistema visual.
+            </p>
+          </div>
+
+          <div class="pagesGrid">
+            <article class="card pageCard">
+              <span class="pageIndex">H</span>
+              <h3>Home</h3>
+              <p>Página-mãe com impacto visual, resumo da oferta e direcionamento para serviços e contato.</p>
+            </article>
+            <article class="card pageCard">
+              <span class="pageIndex">S</span>
+              <h3>Serviços</h3>
+              <p>Explicação mais clara de cada solução, sem ficar parecendo lista genérica.</p>
+            </article>
+            <article class="card pageCard">
+              <span class="pageIndex">P</span>
+              <h3>Portfólio</h3>
+              <p>Cases mais bonitos, com apresentação mais estratégica e sensação de projeto premium.</p>
+            </article>
+            <article class="card pageCard">
+              <span class="pageIndex">C</span>
+              <h3>Contato</h3>
+              <p>Fluxo mais limpo para orçamento, WhatsApp e fechamento de oportunidade.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="ctaSection">
+        <div class="wrap">
+          <div class="ctaPanel">
+            <div>
+              <span class="kicker">Próximo nível</span>
+              <h2>Vamos transformar a PL Digital em uma marca com aparência mais forte e vendável.</h2>
+              <p>Uma identidade mais tecnológica, mais organizada e com muito mais valor percebido para apresentar seus serviços.</p>
+            </div>
+            <div class="ctaRight">
+              <a class="btn btnGhost" href="portfolio.html">Ver trabalhos</a>
+              <a class="btn btnPrimary" href="contato.html">Pedir orçamento</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="wrap footerInner">
+        <div>© 2026 PL Digital. Presença digital com estrutura premium.</div>
+        <div class="footerLinks">
+          <a href="index.html">Início</a>
+          <a href="servicos.html">Serviços</a>
+          <a href="portfolio.html">Portfólio</a>
+          <a href="contato.html">Contato</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
