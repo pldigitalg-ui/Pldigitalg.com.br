@@ -6,6 +6,10 @@
 
 <title>PL Digital Marketing</title>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+
 <style>
 :root{
   --bg:#06120d;
@@ -147,7 +151,7 @@ nav{
   border:1px solid var(--line);
   border-radius:16px;
   padding:8px;
-  width:280px;
+  width:290px;
   display:none;
   box-shadow:var(--shadow);
 }
@@ -158,13 +162,14 @@ nav{
 
 .dropdown a{
   display:block;
-  padding:11px 13px;
+  padding:12px 14px;
   border-radius:12px;
   font-size:14px;
-  font-weight:750;
+  font-weight:800;
   line-height:1.35;
-  color:rgba(243,246,244,.96);
+  color:rgba(243,246,244,.98);
   transition:.18s ease;
+  letter-spacing:-.15px;
 }
 
 .dropdown a:hover{
@@ -203,30 +208,50 @@ nav{
   align-items:center;
 }
 
-.hero h1{
-  font-size:68px;
-  line-height:1.05;
-  margin:0;
-  letter-spacing:-2px;
-  max-width:10ch;
+.hero-copy{
+  min-width:0;
 }
 
-.hero h1 span{
+.hero h1{
+  font-family:Sora,Inter,system-ui,sans-serif;
+  font-size:60px;
+  line-height:1.04;
+  margin:0;
+  letter-spacing:-2px;
+  max-width:14ch;
+  min-height:3.2em;
+}
+
+.hero h1 .accent{
   color:var(--green2);
 }
 
+.hero h1 .cursor{
+  display:inline-block;
+  width:2px;
+  height:1em;
+  background:var(--green2);
+  margin-left:6px;
+  transform:translateY(3px);
+  animation:blink 0.9s steps(1,end) infinite;
+}
+
+@keyframes blink{
+  50%{opacity:0}
+}
+
 .hero p{
-  margin-top:20px;
+  margin-top:18px;
   color:var(--muted);
-  font-size:18px;
+  font-size:16px;
   line-height:1.65;
-  max-width:560px;
+  max-width:520px;
   font-weight:500;
 }
 
 /* HERO BUTTONS */
 .hero-buttons{
-  margin-top:26px;
+  margin-top:24px;
   display:flex;
   gap:14px;
   flex-wrap:wrap;
@@ -259,6 +284,9 @@ nav{
 
 /* VIDEO */
 .video-box{
+  width:60%;
+  max-width:330px;
+  justify-self:end;
   background:var(--panel);
   border-radius:var(--radius);
   overflow:hidden;
@@ -315,6 +343,7 @@ nav{
 
 .services h2{
   margin:0 0 18px;
+  font-family:Sora,Inter,system-ui,sans-serif;
   font-size:38px;
   letter-spacing:-1px;
 }
@@ -394,6 +423,7 @@ nav{
 }
 
 .big-cta h2{
+  font-family:Sora,Inter,system-ui,sans-serif;
   font-size:44px;
   letter-spacing:-1px;
   margin:0 0 12px;
@@ -420,6 +450,11 @@ footer{
   .services-grid{
     grid-template-columns:repeat(2,1fr);
   }
+
+  .hero h1{
+    font-size:52px;
+    max-width:15ch;
+  }
 }
 
 @media(max-width:900px){
@@ -429,7 +464,8 @@ footer{
 
   .hero h1{
     max-width:100%;
-    font-size:52px;
+    font-size:44px;
+    min-height:auto;
   }
 
   .benefits{
@@ -449,6 +485,12 @@ footer{
 
   nav{
     justify-content:center;
+  }
+
+  .video-box{
+    width:100%;
+    max-width:280px;
+    justify-self:start;
   }
 }
 </style>
@@ -527,15 +569,13 @@ footer{
 </header>
 
 <section class="hero wrap">
-  <div>
-    <h1>
-      <span>Tráfego pago</span>,
-      Instagram, site e vendas funcionando juntos.
+  <div class="hero-copy">
+    <h1 id="heroTitle">
+      <span class="accent" id="typedAccent"></span><span id="typedRest"></span><span class="cursor"></span>
     </h1>
 
     <p>
-      A PL Digital junta tráfego pago, Instagram, sites, sistemas para empresas e WhatsApp
-      para sua empresa aparecer mais, gerar confiança e vender mais.
+      A PL Digital une tráfego pago, Instagram, sites, sistemas para empresas e WhatsApp para atrair clientes, passar confiança e vender mais.
     </p>
 
     <div class="hero-buttons">
@@ -547,8 +587,6 @@ footer{
       >
         Quero mais clientes
       </a>
-
-      <a class="btn" href="portfolio.html">Ver projetos</a>
     </div>
   </div>
 
@@ -635,8 +673,7 @@ footer{
   <h2>Quer mais clientes?</h2>
 
   <p>
-    Vamos montar a estrutura digital ideal para sua empresa vender mais:
-    tráfego pago, Instagram, site, WhatsApp e sistemas.
+    Vamos montar a estrutura digital ideal para sua empresa vender mais: tráfego pago, Instagram, site, WhatsApp e sistemas.
   </p>
 
   <br>
@@ -654,6 +691,36 @@ footer{
 <footer>
   PL Digital Marketing • Tráfego • Sites • Instagram • Sistemas
 </footer>
+
+<script>
+  const accentText = "Tráfego pago";
+  const restText = ", Instagram, site e vendas funcionando juntos.";
+  const accentEl = document.getElementById("typedAccent");
+  const restEl = document.getElementById("typedRest");
+
+  let i = 0;
+  let j = 0;
+
+  function typeAccent(){
+    if(i < accentText.length){
+      accentEl.textContent += accentText.charAt(i);
+      i++;
+      setTimeout(typeAccent, 85);
+    }else{
+      setTimeout(typeRest, 120);
+    }
+  }
+
+  function typeRest(){
+    if(j < restText.length){
+      restEl.textContent += restText.charAt(j);
+      j++;
+      setTimeout(typeRest, 34);
+    }
+  }
+
+  window.addEventListener("load", typeAccent);
+</script>
 
 </body>
 </html>
